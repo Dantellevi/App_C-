@@ -1,0 +1,44 @@
+﻿<Window x:Class="Project_DB_Remont.Result.WinResult"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_DB_Remont.Result"
+        mc:Ignorable="d"
+        
+        Title="WinResult" Height="700" Width="500" Background="Chartreuse">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="63*"></RowDefinition>
+            <RowDefinition Height="151*"></RowDefinition>
+            <RowDefinition Height="175*"></RowDefinition>
+            <RowDefinition Height="67*"></RowDefinition>
+            <RowDefinition Height="76*"></RowDefinition>
+            <RowDefinition Height="60*"></RowDefinition>
+            <RowDefinition Height="78*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="139*"></ColumnDefinition>
+            <ColumnDefinition Width="197*"></ColumnDefinition>
+            <ColumnDefinition Width="84*"></ColumnDefinition>
+            <ColumnDefinition Width="72*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock x:Name="DescText" Grid.Row="0" Grid.Column="0" FontSize="20" Margin="10" >описание</TextBlock>
+        <TextBlock x:Name="OrRemont" Grid.Column="0" Grid.Row="1" FontSize="20" Margin="5">начало  <LineBreak /> ремонта</TextBlock>
+        <TextBlock x:Name="EndRemont" Grid.Column="0" Grid.Row="2" FontSize="20" Margin="5">окончание <LineBreak/>ремонта</TextBlock>
+        <TextBlock x:Name="Neisp" Grid.Column="0" Grid.Row="3" FontSize="18" Margin="5">неисправность</TextBlock>
+        <TextBlock x:Name="Foto" Grid.Column="0" Grid.Row="4" FontSize="18" Margin="5">ссылка на фото<LineBreak/>неисправности</TextBlock>
+        <TextBlock x:Name="Derect" Grid.Column="0" Grid.Row="5" FontSize="18" Margin="5">Выполнили</TextBlock>
+        <TextBlock x:Name="MarkaDevices" Grid.Column="0" Grid.Row="6" FontSize="18" Margin="5">Марка<LineBreak/> оборудования</TextBlock>
+        <TextBox IsReadOnly="True" x:Name="DateOrigin" Grid.Column="1" Grid.Row="1" FontSize="20" Margin="5,5,10,5" Grid.ColumnSpan="3"></TextBox>
+        <TextBox IsReadOnly="True" x:FieldModifier="protected internal" x:Name="DescriptionTextResult" FontSize="20" VerticalScrollBarVisibility="Auto"  HorizontalAlignment="Right" Grid.Row="0" Margin="0,4,10,0" Grid.Column="1" Width="338" Grid.ColumnSpan="3"></TextBox>
+        <TextBox x:Name="DateEND" IsReadOnly="True" FontSize="20" Grid.Column="1" Grid.Row="2" Margin="5,5,10,5" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="3"></TextBox>
+        <TextBox x:FieldModifier="protected internal" IsReadOnly="True" x:Name="ERRORresult" FontSize="20" Grid.Column="1" Grid.Row="3" Margin="2,2,10,2" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Auto"/>
+        <Button Background="Azure" x:FieldModifier="protected internal" x:Name="ViewsPhotoResult" Grid.Column="1" Grid.Row="4" FontSize="22" Margin="10" Content="просмотр фото" Click="ViewsPhotoResult_Click" ></Button>
+        <TextBox x:FieldModifier="protected internal" x:Name="AuthorBoxResult" IsReadOnly="True" Grid.Column="1" Grid.Row="5" FontSize="20" Margin="5,5,10,5" Grid.ColumnSpan="3" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:FieldModifier="protected internal" x:Name="DevicesInResult" FontSize="20" IsReadOnly="True" Grid.Column="1" Grid.Row="6" Margin="5,5,10,5" VerticalScrollBarVisibility="Auto"></TextBox>
+
+        <Button Background="CadetBlue" x:Name="Print" Grid.Column="2" Grid.Row="6" Margin="0,5,10,5" FontSize="18" Content="Печать" Click="Print_Click"/>
+        <Button Background="CadetBlue" x:Name="OutWindows" Grid.Row="6" Grid.Column="3" FontSize="18" Content="Выйти" Margin="0,5,10,5" Click="OutWindows_Click"/>
+    </Grid>
+</Window>

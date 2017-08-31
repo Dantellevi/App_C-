@@ -1,0 +1,23 @@
+﻿<Window x:Class="Project_DB_Remont.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_DB_Remont"
+        mc:Ignorable="d"
+        Title="About" Height="300" Width="350" Background="AntiqueWhite">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34*"></RowDefinition>
+            <RowDefinition Height="21*"></RowDefinition>
+            <RowDefinition Height="28*"></RowDefinition>
+            <RowDefinition Height="52*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="T1" Grid.Row="0" Margin="5" FontSize="19" FontWeight="Bold">Ситема управления ремонтами</TextBlock>
+        <TextBlock x:Name="T2" Grid.Row="1" Margin="5 " FontSize="15">Автор : Лепотенко Александр Сергеевич</TextBlock>
+        <TextBlock x:Name="T3" Grid.Row="2" Margin="5" FontSize="15">Почта :    dante.l.levi93@gmail.com</TextBlock>
+        <TextBlock x:Name="Te" Grid.Row="3" Margin="5,31,5,5" FontSize="15" VerticalAlignment="Center">Сайт: </TextBlock>
+        
+    </Grid>
+</Window>
