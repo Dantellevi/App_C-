@@ -1,0 +1,77 @@
+﻿<Window x:Class="WpfApplication1.Services.SettingsWindowConnections"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1.Services"
+        mc:Ignorable="d"
+        Title="SettingsWindowConnections" Height="390" Width="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" Margin="10" >COM-порт:</TextBlock>
+            <ComboBox x:Name="ListPortComboBox" SelectionChanged="ListPortComboBox_SelectionChanged" Margin="10,10,10,26" Width="92"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" Margin="10" >Скорость:</TextBlock>
+            <ComboBox x:Name="ListSpeedComboBox" SelectionChanged="ListSpeedComboBox_SelectionChanged"  Margin="10,10,10,26" Width="99">
+                <ComboBoxItem >300</ComboBoxItem>
+                <ComboBoxItem >600</ComboBoxItem>
+                <ComboBoxItem >1200</ComboBoxItem>
+                <ComboBoxItem >2400</ComboBoxItem>
+                <ComboBoxItem >4800</ComboBoxItem>
+                <ComboBoxItem >9600</ComboBoxItem>
+                <ComboBoxItem >19200</ComboBoxItem>
+                <ComboBoxItem >38400</ComboBoxItem>
+                <ComboBoxItem >57600</ComboBoxItem>
+                <ComboBoxItem >115200</ComboBoxItem>
+                <ComboBoxItem >230400</ComboBoxItem>
+                <ComboBoxItem >460800</ComboBoxItem>
+                <ComboBoxItem>921600</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" Margin="10" >Размер байта:</TextBlock>
+            <ComboBox x:Name="ListComboBox"  Margin="10,10,10,24" SelectionChanged="ListComboBox_SelectionChanged" Width="71">
+                <ComboBoxItem>7</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>9</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <TextBlock FontWeight="Bold" Margin="10" >Паритет:</TextBlock>
+            <ComboBox x:Name="ListParitetComboBox" SelectionChanged="ListParitetComboBox_SelectionChanged"  Margin="40,10,40,25" Width="73">
+                <ComboBoxItem>0</ComboBoxItem>
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Row="4">
+            <StackPanel  Orientation="Horizontal">
+                <TextBlock  Margin="10" FontWeight="Bold">Стоп-бит:</TextBlock>
+                <ComboBox x:Name="ListStopBitsComboBox" SelectionChanged="ListStopBitsComboBox_SelectionChanged" Margin="40,10" Width="72" Height="23">
+                    <ComboBoxItem x:Name="Stopitem1" Content="0"/>
+                    <ComboBoxItem x:Name="Stopitem2" Content="1"/>
+                    <ComboBoxItem x:Name="Stopitem3" Content="2"/>
+
+
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="buttonOk" x:FieldModifier="protected internal"  Content="OK" Click="buttonOk_Click" Margin="2" Width="50" Height="20" IsDefault="True"></Button>
+                <Button x:Name="buttonOCancel" x:FieldModifier="protected internal" Content="Cancel" Click="buttonOCancel_Click" Margin="50,0,0,0" Width="50" Height="20" IsCancel="True"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

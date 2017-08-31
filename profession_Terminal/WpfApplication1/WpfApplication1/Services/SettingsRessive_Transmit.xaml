@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfApplication1.Services.SettingsRessive_Transmit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1.Services"
+        mc:Ignorable="d"
+        Background="BlueViolet"
+        Title="SettingsRessive_Transmit" Height="200" Width="200">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36*"></RowDefinition>
+            <RowDefinition Height="105*"></RowDefinition>
+            <RowDefinition Height="29*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label x:Name="Post" Grid.Row="0" FontSize="12" Margin="5" Foreground="White"> Настройка приема/передачи</Label>
+        <StackPanel Orientation="Vertical" Grid.Row="1" >
+            <RadioButton x:Name="Tr_Ress_On" Checked="Tr_Ress_On_Checked" Foreground="White" FontSize="10"  Margin="0 2 0 0">Включить прием/педедачу</RadioButton>
+            <RadioButton x:Name="Tr_Ress_OFF" Checked="Tr_Ress_OFF_Checked" Foreground="White" FontSize="10" Margin="0 2 0 0">Выключить прием/педедачу</RadioButton>
+            <RadioButton x:Name="Tr_On" Foreground="White" Checked="Tr_On_Checked" FontSize="10" Margin="0 2 0 0">Включить педедачу</RadioButton>
+            <RadioButton x:Name="Ress_ON" Foreground="White" Checked="Ress_ON_Checked" FontSize="10" Margin="0 2 0 0">Включить прием</RadioButton>
+            <RadioButton x:Name="Tr_OFF" Foreground="White" Checked="Tr_OFF_Checked" FontSize="10" Margin="0 2 0 0">Выключить педедачу</RadioButton>
+            <RadioButton x:Name="Ress_OFF" Foreground="White" Checked="Ress_OFF_Checked" FontSize="10" Margin="0 2 0 0">прием/передача больших данных</RadioButton>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <Button x:Name="buttonOK" Content="OK" Margin="2" Width="50" Click="buttonOK_Click" IsDefault="True" Background="Green" Foreground="White"></Button>
+            <Button x:Name="buttonCancel" Content="Cancel" Margin="70,2,2,2" Width="50" Click="buttonCancel_Click" IsCancel="True" Background="Green" Foreground="White"></Button>
+        </StackPanel>
+        
+    </Grid>
+</Window>
