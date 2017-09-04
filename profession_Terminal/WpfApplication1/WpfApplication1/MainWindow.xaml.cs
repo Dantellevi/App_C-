@@ -16,6 +16,8 @@ using System.IO.Ports;
 using System.Threading;
 using WpfApplication1.About;
 using WpfApplication1.Services;
+using System.IO;
+
 namespace WpfApplication1
 {
     /// <summary>
@@ -101,7 +103,23 @@ namespace WpfApplication1
         #region Click_Connection
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
+            count_connect++;
+            if (count_connect % 2 != 0)
+            {
+                btnConnections.Content = "Нет соединения(разорвано)";
+                Port_disconnect();
 
+
+
+            }
+            else if (count_connect % 2 == 0)
+            {
+                btnConnections.Content = "Соединение установлено!!!";
+                Connections_and_Settings();
+                S_port.DataReceived += S_port_DataReceived;
+                ButtanTransmit.IsEnabled = true;
+
+            }
         }
 
         #endregion
@@ -110,7 +128,14 @@ namespace WpfApplication1
         #region Click_NoneConnection
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                Port_disconnect();
+            }
+            catch
+            {
 
+            }
         }
         #endregion
 
@@ -119,7 +144,7 @@ namespace WpfApplication1
         #region Exit_Programm
         private void MenuItem_Click_2(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
         #endregion
 
@@ -285,7 +310,7 @@ namespace WpfApplication1
                 //--------------------------------------
                 if (flConvertRessive == false)
                 {
-                    ConvertBinaryData(data, true);
+                    ConvertBinaryDataRessive(data);
                 }
                 else if (flConvertRessive == true)
                 {
@@ -360,7 +385,7 @@ namespace WpfApplication1
                 Text_Transmit = MessageTransmitTexbox.Text;
                 S_port.WriteLine(String.Format("{0}", Text_Transmit));
                 MessageTransmitTexbox.Clear();
-                FildTransmitDataTextBox.Text += ">>" + Text_Transmit + " " + Environment.NewLine;
+                FildTransmitDataTextBox.Text += ">>>" + Text_Transmit + " " + Environment.NewLine;
 
             }
             catch(Exception es)
@@ -413,7 +438,7 @@ namespace WpfApplication1
             //иначе работаем с передачей
             else
             {
-                FildCodeTransmitDataTextBox.Text += ">>";
+                FildCodeTransmitDataTextBox.Text += ">>>";
                 for (int i = 0; i < Message.Length; i++)
                 {
                     FildCodeTransmitDataTextBox.Text += Convert.ToString(Message[i], 2) + " ";
@@ -422,6 +447,26 @@ namespace WpfApplication1
             }
             
             
+
+        }
+
+
+
+        private void ConvertBinaryDataRessive(string Message)
+        {
+
+
+
+           
+            Dispatcher.Invoke(() => FildCodeDataTextBox.Text += ">>");
+           
+                for (int i = 0; i < Message.Length; i++)
+                {
+                Dispatcher.Invoke(() => FildCodeDataTextBox.Text += Convert.ToString(Message[i], 2) + " ");
+               
+                }
+            Dispatcher.Invoke(() => FildCodeDataTextBox.Text += Environment.NewLine);
+           
 
         }
 
@@ -442,7 +487,7 @@ namespace WpfApplication1
             //иначе работаем с передачей
             else
             {
-                FildCodeTransmitDataTextBox.Text += ">>";
+                FildCodeTransmitDataTextBox.Text += ">>>";
                 for (int i = 0; i < Message.Length; i++)
                 {
                     FildCodeTransmitDataTextBox.Text += Convert.ToString(Message[i], 16) + " ";
@@ -453,5 +498,62 @@ namespace WpfApplication1
 
 
         #endregion
+
+        private void SaveRessiveData_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                //создать папку если ее нет
+                if(!(Directory.Exists(@"C:\Data_virtual")))
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(@"C:\Data_virtual");
+                }
+                else if(Directory.Exists(@"C:\Data_virtual"))
+                {
+                    using (StreamWriter stream = new StreamWriter(@"C:\Data_virtual\DataRessive.txt", false, System.Text.Encoding.Unicode))
+                    {
+                        stream.WriteLine(FildRessiveDataTextBox.Text);
+                        stream.WriteLine("-----------------------------");
+                        MessageBox.Show("Данные записаны в папку  C:\\Data_virtual\\DataRessive.txt");
+                    }
+                }
+               
+            }
+            catch(Exception exs)
+            {
+                MessageBox.Show("Ошибка!!! " + exs.Message);
+            }
+            
+
+        }
+
+        private void SaveTransmitData_Click(object sender, RoutedEventArgs e)
+        {
+
+            try
+            {
+                //создать папку если ее нет
+                if (!(Directory.Exists(@"C:\Data_virtual")))
+                {
+                    DirectoryInfo di = Directory.CreateDirectory(@"C:\Data_virtual");
+                }
+                else if (Directory.Exists(@"C:\Data_virtual"))
+                {
+                    using (StreamWriter stream = new StreamWriter(@"C:\Data_virtual\DataTransmit.txt", false, System.Text.Encoding.Unicode))
+                    {
+                        stream.WriteLine(FildTransmitDataTextBox.Text);
+                        stream.WriteLine("-----------------------------");
+                        MessageBox.Show("Данные записаны в папку  C:\\Data_virtual\\DataTransmit.txt");
+                    }
+                }
+
+            }
+            catch (Exception exs)
+            {
+                MessageBox.Show("Ошибка!!! " + exs.Message);
+            }
+
+
+        }
     }
 }

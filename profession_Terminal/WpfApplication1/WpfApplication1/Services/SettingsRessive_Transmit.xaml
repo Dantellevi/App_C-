@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApplication1.Services"
         mc:Ignorable="d"
         Background="BlueViolet"
-        Title="SettingsRessive_Transmit" Height="200" Width="200">
+        Title="Настройка приема/передачи" Height="200" Width="200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="36*"></RowDefinition>
